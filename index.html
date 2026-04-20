@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORBITAL CRAFT | Visual Storytelling & Code</title>
+    <meta name="description" content="A character-centric portfolio exploring the intersection of design and physics-based motion.">
+    
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Syne:wght@400..800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Design System -->
+    <link rel="stylesheet" href="src/shared/styles/variables.css">
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/features/hero/hero.css">
+    
+    <!-- Smooth Scroll: Lenis (Premimum momentum) -->
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.9/dist/lenis.css">
+    
+    <!-- Motion & Typography Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+</head>
+<body>
+    <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+
+    <header class="nav">
+        <div class="container nav__container">
+
+            <div class="nav__links">
+                <a href="#contact" class="nav__link nav__link--btn">Get in touch</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="app">
+        <section id="hero-mount"></section>
+    </main>
+
+    <script type="module">
+        import { initHero } from './src/features/hero/HeroSection.js';
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            initHero(document.getElementById('hero-mount'));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+/**
+ * variables.css
+ * Orbital Craft: The Red Vision (v5)
+ */
+
+:root {
+    /* Colors - Synced EXACTLY with the definitive illustration */
+    --color-bg: #8c1616; /* Precise Red from subject */
+    --color-text: #ffffff;
+    --color-text-dim: rgba(255, 255, 255, 0.4);
+    --color-accent: #000000;
+    --color-border: rgba(0, 0, 0, 0.1);
+    
+    /* Typography */
+    --font-heading: 'Syne', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-accent: 'Fraunces', serif;
+    
+    /* Spacing */
+    --spacing-main: clamp(2rem, 5vw, 6rem);
+    
+    /* Motion */
+    --ease-premium: cubic-bezier(0.35, 0.35, 0, 1);
+    --transition-smooth: 0.8s var(--ease-premium);
+    
+    /* Layers */
+    --z-back: 1;
+    --z-mid: 2;
+    --z-front: 3;
+    --z-nav: 100;
+}

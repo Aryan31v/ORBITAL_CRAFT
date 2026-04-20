@@ -1,0 +1,127 @@
+/**
+ * hero.css
+ * Defining the definitive "Orbital Crafting" hero experience.
+ */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 2000px;
+}
+
+
+
+.hero__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* Central Character Pillar */
+.hero__character-wrap {
+    position: relative;
+    z-index: var(--z-mid);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease;
+}
+
+.hero__halo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(var(--color-accent), 0.2) 0%, transparent 70%);
+    filter: blur(50px);
+    z-index: -1;
+}
+
+.hero__image-mask {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 0;
+    overflow: visible;
+    box-shadow: none;
+    border: none;
+    /* TIGHTER INTEGRATION: Background removed from asset, mask no longer strictly required for solid edge removal. */
+}
+
+.hero__image-mask img {
+    height: 100vh;
+    width: 100vw;
+    object-fit: contain; /* Fills frame height without cropping integrity */
+    display: block;
+    filter: none;
+}
+
+/* Content Area & Legibility Overlay */
+.hero__content {
+    position: absolute;
+    inset: 0;
+    z-index: var(--z-back); /* Place text behind the subject */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8vw;
+    padding-top: 10vh; /* Anchored a little lower than the literal center */
+    pointer-events: none;
+    /* LEGIBILITY GRADIENT: Subtle darkening to make text pop on red */
+    background: radial-gradient(circle at center, transparent 20%, rgba(0, 0, 0, 0.4) 100%);
+    opacity: 0;
+    transition: opacity 1.5s var(--ease-premium);
+}
+
+.hero--reveal .hero__content {
+    opacity: 1;
+}
+
+.hero__name-container {
+    overflow: hidden;
+    line-height: 1.4; /* Generous line-height for descenders */
+    padding: 0.2em 0.5em; /* Large horizontal buffer for italic slant */
+    margin: -0.2em -0.5em; /* Compensate for padding */
+}
+
+.hero__name {
+    display: inline-block;
+    font-family: var(--font-accent);
+    font-size: clamp(3rem, 10vw, 15rem);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--color-text);
+    text-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hero__name--left {
+    transform-origin: left bottom;
+}
+
+.hero__name--right {
+    transform-origin: right bottom;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .hero__character-wrap { width: 300px; height: 400px; }
+    .hero__side { display: none; }
+
+}
