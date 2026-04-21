@@ -1,0 +1,104 @@
+/**
+ * tools.css
+ * Technical Stack Grid Styles
+ */
+
+.tools {
+    position: relative;
+    width: 100%;
+    padding: 10rem 0;
+    background-color: #000000; /* Deep black for technical contrast */
+    color: var(--color-text);
+}
+
+.tools__container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.tools__header {
+    max-width: 900px;
+    margin: 0 auto 5rem auto;
+    text-align: center;
+}
+
+.tools__subtitle {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--color-bg); /* Use the theme red as accent */
+    margin-bottom: 2rem;
+    display: block;
+    opacity: 0.8;
+}
+
+.tools__title {
+    font-family: var(--font-serif-elegant);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    font-style: italic;
+    letter-spacing: -0.01em;
+}
+
+.tools__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 400px; /* Prevent zero-height triggers */
+}
+
+.tool-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 2.5rem;
+    transition: all 0.5s var(--ease-premium);
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-card:hover {
+    background: rgba(140, 22, 22, 0.1);
+    border-color: rgba(140, 22, 22, 0.3);
+    transform: translateY(-10px);
+}
+
+.tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(140, 22, 22, 0.15), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.tool-card:hover::before {
+    opacity: 1;
+}
+
+.tool-card__icon {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.tool-card__name {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+}
+
+.tool-card__desc {
+    font-size: 0.8125rem;
+    color: var(--color-text-dim);
+    line-height: 1.6;
+}

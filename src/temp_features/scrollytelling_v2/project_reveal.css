@@ -1,0 +1,101 @@
+/**
+ * project_reveal.css
+ * Prototype v2: Staggered Hover Reveal
+ */
+
+:root {
+    --color-bg-v2: #050505; /* Deepest black */
+    --color-text-v2: #ffffff;
+    --color-accent-v2: #ff2144; /* Vibrant Red */
+    --font-heading-bold: 'Syne', sans-serif;
+}
+
+.reveal-prototype {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-bg-v2);
+    color: var(--color-text-v2);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Central List */
+.reveal-list {
+    list-style: none;
+    text-align: center;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+.reveal-item {
+    padding: 0.5rem 0;
+    cursor: pointer;
+    transition: opacity 0.4s ease;
+}
+
+.reveal-item__text {
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-family: var(--font-heading-bold);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: rgba(255, 255, 255, 0.15);
+    transition: color 0.4s ease, transform 0.4s var(--ease-premium);
+    display: inline-block;
+}
+
+.reveal-item:hover .reveal-item__text {
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.reveal-list:hover .reveal-item:not(:hover) {
+    opacity: 0.3;
+}
+
+/* Image Reveal System */
+.reveal-images-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.reveal-img {
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    pointer-events: none;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 33, 68, 0.2);
+}
+
+/* Exact Positions */
+.reveal-img--pos-1 { top: 15%; left: 10%; }
+.reveal-img--pos-2 { bottom: 15%; left: 15%; }
+.reveal-img--pos-3 { top: 20%; right: 10%; }
+.reveal-img--pos-4 { bottom: 20%; right: 15%; }
+
+/* Background Glow */
+.reveal-glow {
+    position: absolute;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(255, 33, 68, 0.05) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1;
+}
