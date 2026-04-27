@@ -1,0 +1,38 @@
+/**
+ * doodles.css
+ * Floating, elegant hand-drawn style elements
+ */
+
+.doodle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1; /* Above background, below content */
+}
+
+.doodle {
+    position: absolute;
+    opacity: 0.4;
+    stroke: #ff4444; /* Red theme */
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 3px rgba(255, 68, 68, 0.3));
+    transition: opacity 0.5s ease;
+}
+
+.hero .doodle-container {
+    /* Corner constraint for hero */
+}
+
+/* Specific doodle animations */
+@keyframes doodle-float {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(10px, -20px) rotate(5deg); }
+    66% { transform: translate(-10px, 15px) rotate(-5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}

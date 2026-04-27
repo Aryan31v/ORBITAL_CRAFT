@@ -42,38 +42,55 @@ export function initExplore(container) {
     const menu = container.querySelector('.explore__menu');
     const links = container.querySelectorAll('.explore__menu-link');
 
-    // Default Hidden State
-    gsap.set(menu, { opacity: 0, visibility: 'hidden', pointerEvents: 'none' });
-    gsap.set(links, { opacity: 0, y: 50 });
-    gsap.set(trigger, { opacity: 1, display: 'flex', pointerEvents: 'all' });
+    // 1. Define Animation Timeline
+    const menuTL = gsap.timeline({ 
+        paused: true,
+        defaults: { ease: 'power3.inOut' },
+        onReverseComplete: () => {
+            gsap.set(menu, { visibility: 'hidden', pointerEvents: 'none' });
+            menu.classList.remove('is-active');
+        }
+    });
 
-    const openMenu = () => {
-        menu.classList.add('is-active');
-        gsap.set(menu, { pointerEvents: 'all' });
-        const tl = gsap.timeline();
-        tl.to(menu, {
+    menuTL
+        .to(menu, {
             opacity: 1,
             visibility: 'visible',
-            duration: 0.6
+            duration: 0.6,
+            onStart: () => {
+                menu.classList.add('is-active');
+                gsap.set(menu, { pointerEvents: 'all' });
+            }
         })
-            .fromTo(links,
-                { y: 80, opacity: 0 },
-                { y: 0, opacity: 0.8, stagger: 0.1, duration: 0.8, ease: 'power4.out' },
-                "-=0.4"
-            );
+        .fromTo(links,
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 0.8, stagger: 0.1, duration: 0.8, ease: 'power4.out' },
+            "-=0.4"
+        );
+
+    const openMenu = () => {
+        menuTL.play();
         gsap.to(trigger, { opacity: 0, duration: 0.3 });
+        window.lenis?.stop();
     };
 
     const closeMenu = () => {
-        menu.classList.remove('is-active');
-        gsap.set(menu, { pointerEvents: 'none' });
+        menuTL.reverse();
         gsap.to(trigger, { opacity: 1, duration: 0.5, delay: 0.3 });
+        window.lenis?.start();
     };
 
+    // 2. Event Listeners
     trigger.addEventListener('click', openMenu);
-    closeBtn.addEventListener('click', closeMenu);
+    closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeMenu();
+    });
 
     links.forEach(link => {
-        link.addEventListener('click', closeMenu);
+        link.addEventListener('click', () => {
+            // Close menu when a link is clicked (important for same-page anchors or slow loads)
+            closeMenu();
+        });
     });
 }

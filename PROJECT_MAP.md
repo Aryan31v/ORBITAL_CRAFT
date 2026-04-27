@@ -26,7 +26,9 @@ project-root/
     │   ├── projects/           
     │   ├── utilities/          
     │   ├── about/              # Editorial Narrative
-    │   └── contact/            # High-impact Contact Hub
+    │   ├── atmosphere/         # Global Red Vibe & Lightning
+    │   ├── contact/            # High-impact Contact Hub
+    │   └── doodles/            # Floating Hand-drawn Elements
     ├── shared/                 
     └── styles/                 
 
@@ -37,6 +39,8 @@ project-root/
 - **Smart Navigation**: Implemented "Anchor Memory" where back-links point to `/#explore`.
 - **Contact Hub**: Implemented a sophisticated background transition from pure black to **Envoy Charcoal** upon page entry.
 - **Horizontal Scrollytelling**: Fully refined the `/utilities.html` layout to match the luxury `mschristensen.com` aesthetic.
+- **Doodles System**: Added elegant, floating hand-drawn orbital elements. Constrained to corners in the Hero section and dispersed throughout other sections (excluding Contact).
+- **Atmosphere System**: Implemented a global, dynamic background with mouse-reactive red gradients and organic SVG lightning effects.
 - **Cloud Sync**: Successfully pushed the core modular architecture and multi-page routing to the GitHub repository.
 - **Gallery Logic**: Integrated high-resolution AI-generated website mockups (Clinical & Fitness) into the Hover Reveal gallery for the "Websites" category.
 - **Gallery Logic**: Fixed the Hover Reveal gallery to ensure unique images are displayed for each project category.

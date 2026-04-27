@@ -1,3 +1,5 @@
+@import "../features/atmosphere/atmosphere.css";
+@import "../features/doodles/doodles.css";
 /* Global Resets & Minimal Layout */
 
 * {
@@ -7,7 +9,7 @@
 }
 
 body {
-    background-color: var(--color-bg);
+    background-color: #000000;
     color: var(--color-text);
     font-family: var(--font-body);
     font-size: 16px;
