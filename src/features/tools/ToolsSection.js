@@ -1,7 +1,4 @@
-/**
- * ToolsSection.js
- * Implements the technical stack grid.
- */
+import gsap from 'gsap';
 
 export function initTools(container) {
     if (!container) return;

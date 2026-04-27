@@ -1,7 +1,4 @@
-/**
- * EntrancePortal.js
- * Manages the immersive portal entrance reveal.
- */
+import gsap from 'gsap';
 
 export function initPortal(container, onReveal) {
     if (!container) return;

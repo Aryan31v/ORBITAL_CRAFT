@@ -1,7 +1,6 @@
-/**
- * scrollManager.js
- * Synchronizes Lenis smooth scroll with GSAP ScrollTrigger.
- */
+import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export function initScroll() {
     // Initialize Lenis

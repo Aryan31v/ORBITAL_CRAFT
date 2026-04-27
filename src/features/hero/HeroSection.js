@@ -1,3 +1,5 @@
+import gsap from 'gsap';
+import SplitType from 'split-type';
 import { getMouseNormalizedPos } from '../../shared/utils/parallaxUtils.js';
 
 /**
