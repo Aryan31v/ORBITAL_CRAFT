@@ -71,7 +71,7 @@
 .utils-container {
     display: flex;
     flex-wrap: nowrap;
-    width: 300%;
+    width: max-content;
     height: 100vh;
     will-change: transform;
 }
@@ -91,6 +91,7 @@
     flex-direction: column;
     width: 90vw;
     max-width: 1400px;
+    margin: 0 auto; /* Centers the card in the viewport */
 }
 
 /* Floating Text Above Image */
@@ -99,7 +100,7 @@
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: 2rem;
-    padding: 0 1rem;
+    padding: 0; /* Aligned with image edges */
 }
 
 .utils-card__header {
@@ -139,8 +140,9 @@
     width: 100%;
     height: 55vh;
     overflow: hidden;
-    border-radius: 2px;
+    border-radius: 4px;
     background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Explicitly defines the box boundary */
 }
 
 .utils-card__image {
@@ -176,4 +178,54 @@
     height: 100%;
     background: #ffffff;
     width: 0%;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .utils-nav {
+        display: none; /* Hide header filters to save space */
+    }
+
+    .utils-container {
+        display: block; /* Switch from flex row to vertical stacking */
+        width: 100%;
+        height: auto;
+    }
+
+    .utils-section {
+        width: 100vw;
+        height: auto;
+        min-height: 100vh;
+        padding-top: 15vh;
+        padding-bottom: 5vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .utils-card {
+        width: 100vw;
+    }
+
+    .utils-card__content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 0 1.5rem; /* Add side padding back for text */
+    }
+
+    .utils-card__meta {
+        text-align: left; /* Align to the left instead of right */
+    }
+
+    .utils-card__image-wrap {
+        height: 45vh; /* Taller on mobile to be punchy */
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+
+    .utils-progress {
+        display: none !important; /* Hide progress bar */
+    }
 }

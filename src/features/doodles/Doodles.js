@@ -21,15 +21,20 @@ export function initDoodles(container, mode = 'everywhere') {
     container.style.position = 'relative';
     container.appendChild(doodleWrap);
 
-    const isMobile = window.innerWidth < 768;
-    const count = mode === 'corner' ? (isMobile ? 2 : 4) : (isMobile ? 8 : 20);
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    let count;
+    if (mode === 'corner') {
+        count = isMobile ? 2 : 4;
+    } else {
+        count = isMobile ? 6 : 20; // Drastically reduce on mobile
+    }
 
     for (let i = 0; i < count; i++) {
-        createDoodle(doodleWrap, mode);
+        createDoodle(doodleWrap, mode, isMobile);
     }
 }
 
-function createDoodle(wrapper, mode) {
+function createDoodle(wrapper, mode, isMobile) {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     
@@ -67,8 +72,8 @@ function createDoodle(wrapper, mode) {
 
     // Continuous Animation
     gsap.to(svg, {
-        x: () => (Math.random() - 0.5) * 120,
-        y: () => (Math.random() - 0.5) * 120,
+        x: () => (Math.random() - 0.5) * (isMobile ? 40 : 120),
+        y: () => (Math.random() - 0.5) * (isMobile ? 40 : 120),
         rotation: () => (Math.random() - 0.5) * 45,
         scale: () => 0.8 + Math.random() * 0.4,
         duration: Math.random() * 10 + 10,

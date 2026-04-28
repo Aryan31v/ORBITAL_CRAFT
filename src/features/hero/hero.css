@@ -39,6 +39,7 @@
     align-items: center;
     justify-content: center;
     transform-style: preserve-3d;
+    transform-origin: bottom center; /* Keeps the character locked to the floor during scale animation */
     transition: transform 0.1s ease;
 }
 
@@ -55,20 +56,26 @@
 }
 
 .hero__image-mask {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
+    height: 100%; /* Or could be 100vh */
     background-color: transparent;
     border-radius: 0;
     overflow: visible;
     box-shadow: none;
     border: none;
-    /* TIGHTER INTEGRATION: Background removed from asset, mask no longer strictly required for solid edge removal. */
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .hero__image-mask img {
     height: 100%;
     width: 100%;
     object-fit: contain; /* Fills frame height without cropping integrity */
+    object-position: bottom center; /* Anchors the character to the bottom edge */
     display: block;
     filter: none;
 }
@@ -131,6 +138,7 @@
         height: 100%;
         width: 100%;
         object-fit: contain;
+        object-position: bottom center;
     }
 
     .hero__name {

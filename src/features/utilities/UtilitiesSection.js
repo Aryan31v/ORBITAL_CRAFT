@@ -61,29 +61,39 @@ export function initUtilities(container) {
 
     const scrollContainer = container.querySelector('.utils-container');
     const progressFill = container.querySelector('.utils-progress__fill');
+    const progressBlock = container.querySelector('.utils-progress');
 
     // Horizontal Scroll Logic
-    gsap.to(scrollContainer, {
-        x: () => -(scrollContainer.scrollWidth - window.innerWidth),
-        ease: 'none',
-        scrollTrigger: {
-            trigger: '.utils-page',
-            pin: true,
-            scrub: 1,
-            invalidateOnRefresh: true,
-            end: () => "+=" + scrollContainer.scrollWidth
-        }
-    });
+    setTimeout(() => {
+        const maxScroll = scrollContainer.scrollWidth - window.innerWidth;
+        
+        if (maxScroll > 0) {
+            gsap.to(scrollContainer, {
+                x: -maxScroll,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.utils-page',
+                    pin: true,
+                    scrub: 1,
+                    invalidateOnRefresh: true,
+                    end: () => "+=" + maxScroll
+                }
+            });
 
-    // Progress Logic
-    gsap.to(progressFill, {
-        width: '100%',
-        ease: 'none',
-        scrollTrigger: {
-            trigger: '.utils-page',
-            scrub: 0.3,
-            start: 'top top',
-            end: () => "+=" + scrollContainer.scrollWidth
+            // Progress Logic
+            gsap.to(progressFill, {
+                width: '100%',
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.utils-page',
+                    scrub: 0.3,
+                    start: 'top top',
+                    end: () => "+=" + maxScroll
+                }
+            });
+        } else {
+            // If only 1 item, disable horizontal scroll and progress bar
+            if (progressBlock) progressBlock.style.display = 'none';
         }
-    });
+    }, 100); // Small delay to ensure styles are computed
 }

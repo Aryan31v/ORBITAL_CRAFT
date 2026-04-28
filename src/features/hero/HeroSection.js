@@ -68,7 +68,8 @@ export function initHero(container) {
             scale: 0.9,
             duration: 2,
             ease: 'expo.out',
-            delay: 0.2
+            delay: 0.2,
+            clearProps: 'all' // Removes inline styles after animation completes
         });
     }, 100);
 }

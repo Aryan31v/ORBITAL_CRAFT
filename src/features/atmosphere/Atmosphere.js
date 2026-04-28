@@ -22,17 +22,24 @@ export function initAtmosphere() {
     const lightningContainer = container.querySelector('.atmosphere__lightning-container');
 
     // 2. Optimized Mouse Tracking (GPU Accelerated)
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
     const xSetter = gsap.quickSetter(gradient, "x", "px");
     const ySetter = gsap.quickSetter(gradient, "y", "px");
 
-    window.addEventListener('mousemove', (e) => {
-        // Move the gradient container so the center follows the mouse
-        const x = e.clientX - window.innerWidth / 2;
-        const y = e.clientY - window.innerHeight / 2;
-        
-        xSetter(x);
-        ySetter(y);
-    });
+    if (!isMobile) {
+        window.addEventListener('mousemove', (e) => {
+            // Move the gradient container so the center follows the mouse
+            const x = e.clientX - window.innerWidth / 2;
+            const y = e.clientY - window.innerHeight / 2;
+            
+            xSetter(x);
+            ySetter(y);
+        });
+    } else {
+        // On mobile, just center the gradient statically to save CPU
+        xSetter(0);
+        ySetter(0);
+    }
 
     // 3. Lightweight Lightning Generation
     function createLightning() {
@@ -96,11 +103,12 @@ export function initAtmosphere() {
         });
     }
 
-    // Balanced interval
+    // Balanced interval, drastically reduced on mobile
     function scheduleLightning() {
-        if (window.innerWidth < 768) return; // Disable lightning on mobile for performance
-
-        const delay = Math.random() * 8000 + 4000; // Increased delay
+        const baseDelay = isMobile ? 12000 : 5000;
+        const randomDelay = isMobile ? 8000 : 2000;
+        const delay = Math.random() * randomDelay + baseDelay;
+        
         setTimeout(() => {
             createLightning();
             scheduleLightning();
