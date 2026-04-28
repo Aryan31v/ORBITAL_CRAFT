@@ -60,3 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Final refresh when all assets (fonts, images) are definitely loaded
+window.addEventListener('load', () => {
+    ScrollTrigger.refresh();
+});

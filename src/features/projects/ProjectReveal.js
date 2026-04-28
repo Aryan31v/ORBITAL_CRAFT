@@ -1,5 +1,14 @@
 import gsap from 'gsap';
 
+// Import Assets
+import websiteClinic from '../../assets/projects/website_clinic.png';
+import websiteFitness from '../../assets/projects/website_fitness.png';
+import utilityRed from '../../assets/v2/utility_red_black_v2_1776693563359.png';
+import codeRed from '../../assets/v2/code_red_black_1776693500385.png';
+import appRed from '../../assets/v2/app_red_black_v2_1776693578616.png';
+import webAppRed from '../../assets/v2/web_app_red_black_v2_1776693594468.png';
+import webDevRed from '../../assets/v2/web_dev_red_black_v2_1776693543167.png';
+
 /**
  * ProjectReveal.js
  * Staggered Hover Reveal Logic
@@ -10,20 +19,20 @@ export function initProjectReveal(container) {
 
     const projectData = {
         'WEBSITES': [
-            'src/assets/projects/website_clinic.png',
-            'src/assets/projects/website_fitness.png'
+            websiteClinic,
+            websiteFitness
         ],
         'UTILITIES': [
-            'src/assets/v2/utility_red_black_v2_1776693563359.png',
-            'src/assets/v2/code_red_black_1776693500385.png'
+            utilityRed,
+            codeRed
         ],
         'APPLICATIONS': [
-            'src/assets/v2/app_red_black_v2_1776693578616.png',
-            'src/assets/v2/web_app_red_black_v2_1776693594468.png'
+            appRed,
+            webAppRed
         ],
         'WEB APPS': [
-            'src/assets/v2/web_app_red_black_v2_1776693594468.png',
-            'src/assets/v2/web_dev_red_black_v2_1776693543167.png'
+            webAppRed,
+            webDevRed
         ]
     };
 

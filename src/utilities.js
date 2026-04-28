@@ -25,3 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Utilities Page Fully Initialized');
     });
 });
+
+window.addEventListener('load', () => {
+    ScrollTrigger.refresh();
+});

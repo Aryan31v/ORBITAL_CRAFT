@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import SplitType from 'split-type';
 import { getMouseNormalizedPos } from '../../shared/utils/parallaxUtils.js';
+import heroImage from '../../assets/hero-definitive-Photoroom.png';
 
 /**
  * HeroSection.js
@@ -17,7 +18,7 @@ export function initHero(container) {
                 <div class="hero__character-wrap">
                     <div class="hero__halo"></div>
                     <div class="hero__image-mask">
-                        <img src="src/assets/hero-definitive-Photoroom.png" alt="Definitive Red Illustration of Orbital Crafting Creator">
+                        <img src="${heroImage}" alt="Definitive Red Illustration of Orbital Crafting Creator">
                     </div>
                 </div>
                 
@@ -38,12 +39,13 @@ export function initHero(container) {
 
     const heroEl = container.querySelector('.hero');
     const charWrap = container.querySelector('.hero__character-wrap');
+    const halo = container.querySelector('.hero__halo');
 
-    // Reveal animation entrance
+    // 1. Reveal animation entrance
     setTimeout(() => {
         heroEl.classList.add('hero--reveal');
 
-        // Kinetic Typography Reveal (as per skill)
+        // Kinetic Typography Reveal
         const names = container.querySelectorAll('.hero__name');
         
         names.forEach((name) => {
@@ -59,5 +61,37 @@ export function initHero(container) {
                 delay: 0.5
             });
         });
+
+        // Subject Entrance
+        gsap.from(charWrap, {
+            opacity: 0,
+            scale: 0.9,
+            duration: 2,
+            ease: 'expo.out',
+            delay: 0.2
+        });
     }, 100);
+
+    // 2. Mouse Parallax Logic
+    window.addEventListener('mousemove', (e) => {
+        const { x, y } = getMouseNormalizedPos(e);
+        
+        // Move character wrap subtly
+        gsap.to(charWrap, {
+            x: x * 30,
+            y: y * 20,
+            rotationY: x * 10,
+            rotationX: -y * 5,
+            duration: 1.2,
+            ease: 'power2.out'
+        });
+
+        // Move halo in opposition for depth
+        gsap.to(halo, {
+            x: -x * 50,
+            y: -y * 30,
+            duration: 1.5,
+            ease: 'power2.out'
+        });
+    });
 }
