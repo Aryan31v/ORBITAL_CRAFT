@@ -4,6 +4,7 @@ import { initScroll } from './shared/utils/scrollManager.js';
 import { initPortal } from './features/entrance/EntrancePortal.js';
 import { initHero } from './features/hero/HeroSection.js';
 import { initTools } from './features/tools/ToolsSection.js';
+import { initContact } from './features/contact/ContactSection.js';
 import { initExplore } from './features/navigation/ExploreNav.js';
 import { initAtmosphere } from './features/atmosphere/Atmosphere.js';
 import { initDoodles } from './features/doodles/Doodles.js';
@@ -30,9 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.set(contentShell, { opacity: 1 });
         const heroMount = document.getElementById('hero-mount');
         const toolsMount = document.getElementById('tools-mount');
+        const contactMount = document.getElementById('contact-mount');
         
         initHero(heroMount);
         initTools(toolsMount);
+        initContact(contactMount);
         initDoodles(heroMount, 'corner');
         initDoodles(toolsMount, 'everywhere');
         ScrollTrigger.refresh();
@@ -47,9 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 onStart: () => {
                     const heroMount = document.getElementById('hero-mount');
                     const toolsMount = document.getElementById('tools-mount');
+                    const contactMount = document.getElementById('contact-mount');
                     
                     initHero(heroMount);
                     initTools(toolsMount);
+                    initContact(contactMount);
                     initDoodles(heroMount, 'corner');
                     initDoodles(toolsMount, 'everywhere');
                 },

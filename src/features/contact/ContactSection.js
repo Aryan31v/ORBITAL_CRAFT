@@ -27,7 +27,7 @@ export function initContact(container) {
     }).join('');
 
     container.innerHTML = `
-        <section class="contact">
+        <section class="contact" id="contact">
             <div class="contact__clouds">${cloudsHTML}</div>
             <div class="contact__container">
                 <header class="contact__header">
