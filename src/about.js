@@ -17,5 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
         initAbout(aboutMount);
         initExplore(document.getElementById('explore-mount'));
         initDoodles(aboutMount, 'everywhere');
+        ScrollTrigger.refresh();
     });
 });

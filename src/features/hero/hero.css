@@ -7,6 +7,7 @@
     position: relative;
     width: 100%;
     height: 100vh;
+    height: 100dvh;
     background-color: var(--color-bg);
     display: flex;
     align-items: center;
@@ -65,8 +66,8 @@
 }
 
 .hero__image-mask img {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     object-fit: contain; /* Fills frame height without cropping integrity */
     display: block;
     filter: none;
@@ -127,8 +128,8 @@
     }
     
     .hero__image-mask img {
-        height: 100vh;
-        width: 100vw;
+        height: 100%;
+        width: 100%;
         object-fit: contain;
     }
 

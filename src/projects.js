@@ -23,5 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
         initDoodles(projectsMount, 'everywhere');
         
         console.log('Projects Page Fully Initialized');
+        ScrollTrigger.refresh();
     });
 });

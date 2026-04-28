@@ -14,6 +14,8 @@ gsap.registerPlugin(ScrollTrigger);
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Global Systems
     initScroll();
+    
+    // Mount atmosphere to body (it handles its own fixed positioning)
     initAtmosphere();
 
     // 2. Navigation
@@ -27,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (skipPortal) {
         if (portalMount) portalMount.style.display = 'none';
-        gsap.set(contentShell, { opacity: 1 });
+        gsap.set(contentShell, { opacity: 1, visibility: 'visible' });
         const heroMount = document.getElementById('hero-mount');
         const toolsMount = document.getElementById('tools-mount');
         
@@ -42,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             gsap.to(contentShell, {
                 opacity: 1,
+                visibility: 'visible',
                 duration: 1,
                 ease: 'power2.out',
                 onStart: () => {

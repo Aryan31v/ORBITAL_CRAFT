@@ -14,5 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initLoader(() => {
         initContact(document.getElementById('contact-mount'));
         initExplore(document.getElementById('explore-mount'));
+        ScrollTrigger.refresh();
     });
 });
