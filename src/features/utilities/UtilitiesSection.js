@@ -21,39 +21,27 @@ export function initUtilities(container) {
             subtitle: 'DroidWhisper / Communication Utility',
             link: 'https://github.com/Aryan31v/DroidWhisper',
             image: codeRed
-        },
-        {
-            title: 'Forging a Vision Worth Tracking',
-            tag: 'Selected',
-            subtitle: 'Orbital Scan / Loader Prototype',
-            link: '#',
-            image: utilityRed
-        },
-        {
-            title: 'Exploring the Invisible Logic of the Web',
-            tag: 'Development',
-            subtitle: 'Project Alpha / Stealth Mode',
-            link: '#',
-            image: webAppRed
         }
     ];
 
     const projectHTML = utilityProjects.map(p => `
         <div class="utils-section">
-            <div class="utils-card">
-                <div class="utils-card__content">
-                    <div class="utils-card__header">
-                        <h2 class="utils-card__title">${p.title}</h2>
+            <a href="${p.link}" target="_blank" class="utils-card-link" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                <div class="utils-card">
+                    <div class="utils-card__content">
+                        <div class="utils-card__header">
+                            <h2 class="utils-card__title">${p.title}</h2>
+                        </div>
+                        <div class="utils-card__meta">
+                            <span class="utils-card__tag">${p.tag}</span>
+                            <p class="utils-card__subtitle">${p.subtitle}</p>
+                        </div>
                     </div>
-                    <div class="utils-card__meta">
-                        <span class="utils-card__tag">${p.tag}</span>
-                        <p class="utils-card__subtitle">${p.subtitle}</p>
+                    <div class="utils-card__image-wrap">
+                        <img src="${p.image}" class="utils-card__image" alt="${p.title}">
                     </div>
                 </div>
-                <div class="utils-card__image-wrap">
-                    <img src="${p.image}" class="utils-card__image" alt="${p.title}">
-                </div>
-            </div>
+            </a>
         </div>
     `).join('');
 
