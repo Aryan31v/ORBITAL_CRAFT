@@ -2,7 +2,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Import Assets
-import codeRed from '../../assets/v2/code_red_black_1776693500385.png';
+import droidWhisperUI from '../../assets/v2/droidwhisper_ui.png';
 import utilityRed from '../../assets/v2/utility_red_black_v2_1776693563359.png';
 import webAppRed from '../../assets/v2/web_app_red_black_v2_1776693594468.png';
 
@@ -20,7 +20,7 @@ export function initUtilities(container) {
             tag: 'Selected',
             subtitle: 'DroidWhisper / Communication Utility',
             link: 'https://github.com/Aryan31v/DroidWhisper',
-            image: codeRed
+            image: droidWhisperUI
         }
     ];
 

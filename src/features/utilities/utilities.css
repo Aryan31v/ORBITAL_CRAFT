@@ -148,7 +148,8 @@
 .utils-card__image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* Prevents text cropping */
+    object-position: top center; /* Aligns the UI to the top of the box */
     filter: grayscale(1);
     transition: filter 1s var(--ease-premium), transform 1.5s var(--ease-premium);
 }
