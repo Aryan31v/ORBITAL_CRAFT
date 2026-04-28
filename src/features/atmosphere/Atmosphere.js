@@ -98,7 +98,9 @@ export function initAtmosphere() {
 
     // Balanced interval
     function scheduleLightning() {
-        const delay = Math.random() * 5000 + 2000;
+        if (window.innerWidth < 768) return; // Disable lightning on mobile for performance
+
+        const delay = Math.random() * 8000 + 4000; // Increased delay
         setTimeout(() => {
             createLightning();
             scheduleLightning();

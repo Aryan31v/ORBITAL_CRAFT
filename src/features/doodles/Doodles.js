@@ -21,7 +21,8 @@ export function initDoodles(container, mode = 'everywhere') {
     container.style.position = 'relative';
     container.appendChild(doodleWrap);
 
-    const count = mode === 'corner' ? 4 : 20;
+    const isMobile = window.innerWidth < 768;
+    const count = mode === 'corner' ? (isMobile ? 2 : 4) : (isMobile ? 8 : 20);
 
     for (let i = 0; i < count; i++) {
         createDoodle(doodleWrap, mode);

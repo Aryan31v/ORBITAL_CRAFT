@@ -71,27 +71,4 @@ export function initHero(container) {
             delay: 0.2
         });
     }, 100);
-
-    // 2. Mouse Parallax Logic
-    window.addEventListener('mousemove', (e) => {
-        const { x, y } = getMouseNormalizedPos(e);
-        
-        // Move character wrap subtly
-        gsap.to(charWrap, {
-            x: x * 30,
-            y: y * 20,
-            rotationY: x * 10,
-            rotationX: -y * 5,
-            duration: 1.2,
-            ease: 'power2.out'
-        });
-
-        // Move halo in opposition for depth
-        gsap.to(halo, {
-            x: -x * 50,
-            y: -y * 30,
-            duration: 1.5,
-            ease: 'power2.out'
-        });
-    });
 }

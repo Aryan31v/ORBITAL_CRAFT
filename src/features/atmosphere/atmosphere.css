@@ -55,3 +55,12 @@
     opacity: 0.05;
     mix-blend-mode: overlay;
 }
+
+@media (max-width: 768px) {
+    .atmosphere__overlay {
+        display: none; /* Noise is very expensive on mobile */
+    }
+    .atmosphere__lightning-container {
+        display: none;
+    }
+}
